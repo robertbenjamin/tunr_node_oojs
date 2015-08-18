@@ -2,6 +2,8 @@ var ArtistView = function(artist){
   this.artist = artist;
   this.click = 0;
   this.$el = $("<div class='artist'></div>");
+  this.render();
+  $(".artists").append(this.$el);
 };
 
 ArtistView.prototype = {
@@ -30,16 +32,24 @@ ArtistView.prototype = {
       songsDiv.append(songView.render());
     });
   },
+  updateArtist: function() {
+    var data = {  name:     $('input[name=name]').val(),
+                  photoUrl: $('input[name=photoUrl]').val() };
+    // this.artist.update(data);
+    this.render();
+  },
   renderEditForm: function() {
     var self = this;
-
     self.$el.html(this.artistEditTemplate(this.artist));
+
+    $(".updateArtist").on("click", function() {
+      self.updateArtist();
+    });
   },
   render: function(){
     var self = this;
 
     self.$el.html(this.artistTemplate(this.artist));
-    $(".artists").append(self.$el);
 
     var showButton = self.$el.find(".showSongs");
     var editButton = self.$el.find(".editArtist");
@@ -69,7 +79,7 @@ ArtistView.prototype = {
     html.append("<input name='name' value='" + artist.name + "'>");
     html.append("<img class='artist-photo' src='" + artist.photoUrl + "'>");
     html.append("<input name='photoUrl' value='" + artist.photoUrl + "'>");
-    html.append("<button class='editArtist'>Update Artist</button>");
+    html.append("<button class='updateArtist'>Update Artist</button>");
     return(html);
   }
 };
