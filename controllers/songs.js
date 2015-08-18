@@ -7,6 +7,12 @@ function error(response, message){
   response.json({error: message})
 }
 
+router.get("/artists/:artistId/songs", function(req, res){
+  Artist.findById(req.params.artistId).then(function(artist){
+    res.json(artist.getSongs())
+  })
+})
+
 router.get("/songs", function(req, res){
   Song.findAll().then(function(songs){
     res.json(songs);

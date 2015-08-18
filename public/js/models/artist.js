@@ -5,16 +5,14 @@ var Artist = function(info){
 }
 
 Artist.fetch = function(){
-  $.ajax({
-     type: 'GET',
-     dataType: 'json',
-     url: "http://localhost:3000/artists"
-   }).done(function(response) {
-     artists = []
-     for(var i = 0; i < response.length; i++){
-       artists.push(new Artist(response[i]))
-     }
-   }).fail(function(response){
-     console.log("js failed to load")
-   })
+  var request = $.getJSON("http://localhost:3000/artists").then(function(response) {
+    var artists = []
+    for(var i = 0; i < response.length; i++){
+      artists.push(new Artist(response[i]))
+    }
+    return artists
+    }).fail(function(response){
+      console.log("js failed to load")
+    })
+  return request
 }

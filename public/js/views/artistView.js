@@ -6,6 +6,7 @@ ArtistView.prototype = {
   render: function(){
     var $el = $("<div class='artist'><div>")
     $el.append("<h3>" + this.artist.name + "</h3>");
+    $el.append("<img src='" + this.artist.photoUrl + "'>")
     $(".artists").append($el)
   }
 }
