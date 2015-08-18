@@ -38,7 +38,7 @@ ArtistView.prototype = {
   render: function(){
     var self = this;
 
-    self.$el.html(this.artistTemplate(this.artist));
+    self.$el.html(self.artistTemplate(self.artist));
     $(".artists").append(self.$el);
 
     var showButton = self.$el.find(".showSongs");
