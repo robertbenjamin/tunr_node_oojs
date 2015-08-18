@@ -4,8 +4,7 @@ var SongView = function(song){
 
 SongView.prototype = {
   render: function(){
-    var song = this.song
-    var $el = $("<p>" + song.title + "</p>");
-    return($el)
+    var el = $("<p>" + this.song.title + "</p>");
+    return(el)
   }
 }

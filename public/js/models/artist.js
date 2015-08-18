@@ -1,9 +1,9 @@
 var Artist = function(info){
+  var self = this;
   this.name = info.name;
   this.photoUrl = info.photoUrl;
   this.nationality = info.nationality;
   this.id = info.id
-  this.songs = this.fetch
 }
 
 Artist.fetch = function(){
@@ -28,6 +28,7 @@ Artist.prototype = {
     .then(function(response){
       var songs = []
       for(var i = 0; i < response.length; i++){
+        // TODO: should this be this.songs?
         songs.push(new Song(response[i]))
       }
       return songs
@@ -37,4 +38,5 @@ Artist.prototype = {
       })
     return request
   }
+
 }
