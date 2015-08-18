@@ -35,7 +35,7 @@ ArtistView.prototype = {
     $(".artists").append($el)
     var showButton = $el.find(".showSongs")
     var songsDiv = $el.children("div.songs")
-    songsDiv.hide() // hide div until its populated with songs
+    songsDiv.hide() // hide div until it's populated with songs
     showButton.on("click", function(){
       self.toggleSongs(songsDiv)
     })
