@@ -11,7 +11,7 @@ var artistsController = require("./controllers/artists");
 var songsController = require("./controllers/songs");
 
 app.get("/", function(req, res){
-  res.sendFile(__dirname + "/views/application.html")
+  res.render("index", {})
 });
 
 app.use("/", artistsController);
