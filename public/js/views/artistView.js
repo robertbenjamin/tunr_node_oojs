@@ -49,7 +49,7 @@ ArtistView.prototype = {
   render: function(){
     var self = this;
 
-    self.$el.html(this.artistTemplate(this.artist));
+    self.$el.html(self.artistTemplate(self.artist));
 
     var showButton = self.$el.find(".showSongs");
     var editButton = self.$el.find(".editArtist");
