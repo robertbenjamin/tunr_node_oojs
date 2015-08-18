@@ -4,6 +4,7 @@ var Song = function(info){
   this.previewUrl = info.previewUrl;
   this.artwork = info.artwork;
   this.artistId = info.artistId;
+  this.id = info.id
 }
 
 
