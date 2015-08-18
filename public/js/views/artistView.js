@@ -53,7 +53,7 @@ ArtistView.prototype = {
 
     var showButton = self.$el.find(".showSongs");
     var editButton = self.$el.find(".editArtist");
-    var songsDiv   = self.$el.children("div.songs");
+    var songsDiv   = self.$el.find("div.songs");
 
     songsDiv.hide(); // hide div until it's populated with songs
 
