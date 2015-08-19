@@ -6,10 +6,3 @@ var Song = function(info){
   this.artistId = info.artistId;
   this.id = info.id
 }
-
-
-
-// "title": "Maps",
-// "album": "Fever to Tell",
-// "previewUrl": "http://a1748.phobos.apple.com/us/r1000/074/Music/d4/97/e7/mzm.bigdtgoz.aac.p.m4a",
-// "artwork":

@@ -1,6 +1,5 @@
 var ArtistView = function(artist){
   this.artist = artist;
-  this.click = 0;
   this.$el = $("<div class='artist'></div>");
 };
 
@@ -14,7 +13,7 @@ ArtistView.prototype = {
   },
   toggleSongs: function(songsDiv){
     var self = this;
-    // if not in DOM, populate
+    // if not in DOM, populate'
     if(songsDiv.children().length === 0){
       this.artist.fetchSongs().then(function(songs){
         self.appendSongs(songs, songsDiv);
@@ -37,8 +36,7 @@ ArtistView.prototype = {
     $(".artists").append(self.$el);
 
     var showButton = self.$el.find(".showSongs");
-    var editButton = self.$el.find(".editArtist");
-    var songsDiv   = self.$el.children("div.songs");
+    var songsDiv   = self.$el.find("div.songs");
 
     songsDiv.hide(); // hide div until it's populated with songs
 
