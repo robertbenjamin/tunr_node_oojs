@@ -33,17 +33,21 @@ ArtistView.prototype = {
     });
   },
   updateArtist: function() {
+    var self = this;
     var data = {  name:     $('input[name=name]').val(),
                   photoUrl: $('input[name=photoUrl]').val() };
-    // this.artist.update(data);
-    this.render();
+    this.artist.update(data).then(function() { self.render(); });
   },
   renderEditForm: function() {
     var self = this;
     self.$el.html(this.artistEditTemplate(this.artist));
 
-    $(".updateArtist").on("click", function() {
+    self.$el.find(".updateArtist").on("click", function() {
       self.updateArtist();
+    });
+
+    self.$el.find(".deleteArtist").on("click", function() {
+      self.artist.destroy().then(function() { self.$el.fadeOut()});
     });
   },
   render: function(){
@@ -80,6 +84,7 @@ ArtistView.prototype = {
     html.append("<img class='artist-photo' src='" + artist.photoUrl + "'>");
     html.append("<input name='photoUrl' value='" + artist.photoUrl + "'>");
     html.append("<button class='updateArtist'>Update Artist</button>");
+    html.append("<button class='deleteArtist'>Delete Artist</button>");
     return(html);
   }
 };
