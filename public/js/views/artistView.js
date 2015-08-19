@@ -9,9 +9,9 @@ var ArtistView = function(artist){
 ArtistView.prototype = {
   toggleButton: function(songsDiv){
     if(songsDiv.is(":visible")){
-      songsDiv.siblings("button").text("Hide Songs");
+      songsDiv.siblings("button.showSongs").text("Hide Songs");
     } else {
-      songsDiv.siblings("button").text("Show Songs");
+      songsDiv.siblings("button.showSongs").text("Show Songs");
     }
   },
   toggleSongs: function(songsDiv){
