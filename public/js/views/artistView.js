@@ -14,29 +14,12 @@ ArtistView.prototype = {
     self.$el.html(self.artistTemplate(self.artist));
 
     var showButton = self.$el.find(".showSongs");
-    var editButton = self.$el.find(".editArtist");
     var songsDiv   = self.$el.find("div.songs");
 
     songsDiv.hide(); // hide div until it's populated with songs
 
     showButton.on("click", function(){
       self.toggleSongs(songsDiv);
-    });
-
-    editButton.on("click", function() {
-      self.renderEditForm();
-    });
-  },
-  renderEditForm: function() {
-    var self = this;
-    self.$el.html(this.artistEditTemplate(this.artist));
-
-    self.$el.find(".updateArtist").on("click", function() {
-      self.updateArtist();
-    });
-
-    self.$el.find(".deleteArtist").on("click", function() {
-      self.artist.destroy().then(function() { self.$el.fadeOut()});
     });
   },
   toggleButton: function(songsDiv){
@@ -64,28 +47,12 @@ ArtistView.prototype = {
       songsDiv.append(songView.render());
     });
   },
-  updateArtist: function() {
-    var self = this;
-    var data = {  name:     $('input[name=name]').val(),
-                  photoUrl: $('input[name=photoUrl]').val() };
-    this.artist.update(data).then(function() { self.render(); });
-  },
   artistTemplate: function(artist){
     var html = $("<div>");
     html.append("<h3>" + artist.name + "</h3>");
     html.append("<img class='artist-photo' src='" + artist.photoUrl + "'>");
     html.append("<button class='showSongs'>Show Songs</button>");
-    html.append("<button class='editArtist'>Edit Artist</button>");
     html.append("<div class='songs'></div>");
-    return(html);
-  },
-  artistEditTemplate: function(artist) {
-    var html = $("<div>");
-    html.append("<input name='name' value='" + artist.name + "'>");
-    html.append("<img class='artist-photo' src='" + artist.photoUrl + "'>");
-    html.append("<input name='photoUrl' value='" + artist.photoUrl + "'>");
-    html.append("<button class='updateArtist'>Update Artist</button>");
-    html.append("<button class='deleteArtist'>Delete Artist</button>");
     return(html);
   }
 };

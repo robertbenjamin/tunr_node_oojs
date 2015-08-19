@@ -35,29 +35,5 @@ Artist.prototype = {
       console.log("js failed to load");
     });
     return request;
-  },
-  update: function(artistData) {
-    var self = this;
-
-    var url = "http://localhost:3000/artists/" + this.id;
-    var request = $.ajax({
-      url: url,
-      method: "patch",
-      data: JSON.stringify(artistData),
-      contentType : 'application/json'
-    }).then(
-      function(updatedArtistInfo) {self.reload(updatedArtistInfo);}
-    );
-    return request;
-  },
-  destroy: function() {
-    var url = "http://localhost:3000/artists/" + this.id;
-    var request = $.ajax( {url: url, method: "delete"} );
-    return request;
-  },
-  reload: function(newData){
-    for(var attrname in newData) {
-      this[attrname] = newData[attrname];
-    }
   }
 };
