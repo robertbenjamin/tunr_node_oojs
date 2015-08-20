@@ -34,10 +34,6 @@ ArtistView.prototype = {
     self.$el.find(".updateArtist").on("click", function() {
       self.updateArtist();
     });
-
-    self.$el.find(".deleteArtist").on("click", function() {
-      self.artist.destroy().then(function() { self.$el.fadeOut()});
-    });
   },
   toggleButton: function(songsDiv){
     if(songsDiv.is(":visible")){
@@ -85,7 +81,6 @@ ArtistView.prototype = {
     html.append("<img class='artist-photo' src='" + artist.photoUrl + "'>");
     html.append("<input name='photoUrl' value='" + artist.photoUrl + "'>");
     html.append("<button class='updateArtist'>Update Artist</button>");
-    html.append("<button class='deleteArtist'>Delete Artist</button>");
     return(html);
   }
 };
