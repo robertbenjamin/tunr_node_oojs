@@ -7,11 +7,22 @@
     <script src="/public/js/models/artist.js"></script>
     <script src="/public/js/models/song.js"></script>
     <script src="/public/js/views/artistView.js"></script>
+    <script src="/public/js/views/newArtistView.js"></script>
     <script src="/public/js/views/songView.js"></script>
     <script src="/public/js/script.js"></script>
   </head>
   <body>
     <header><h1>Tun.r</h1></header>
+
+    <div class="newArtistView">
+      <button class="addArtist">Add Artist</button>
+      <form class="newArtist">
+        <input name='name' placeholder="artist name">
+        <input name='photoUrl' placeholder = "artist photo url">
+        <button class='createArtist'>Create Artist</button>
+      </form>
+    </div>
+
     {{{ body }}}
 
   </body>

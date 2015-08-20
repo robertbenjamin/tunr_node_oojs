@@ -20,6 +20,21 @@ Artist.fetch = function(){
   return request;
 };
 
+Artist.create = function(artistData) {
+  var self = this;
+
+  var url = "http://localhost:3000/artists";
+  var request = $.ajax({
+    url: url,
+    method: "post",
+    data: JSON.stringify(artistData),
+    contentType : 'application/json'
+  }).then(function(artistData) {
+    return new Artist(artistData);
+  });
+  return request;
+};
+
 Artist.prototype = {
   fetchSongs: function(){
     var url = "http://localhost:3000/artists/" + this.id + "/songs";
