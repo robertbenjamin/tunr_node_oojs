@@ -68,7 +68,7 @@ ArtistView.prototype = {
     var self = this;
     var data = {  name:     $('input[name=name]').val(),
                   photoUrl: $('input[name=photoUrl]').val() };
-    this.artist.update(data).then(function() { self.render(); });
+    self.artist.update(data).then(function() { self.render(); });
   },
   artistTemplate: function(artist){
     var html = $("<div>");
